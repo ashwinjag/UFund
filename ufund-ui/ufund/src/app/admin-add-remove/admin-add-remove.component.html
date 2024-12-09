@@ -1,0 +1,61 @@
+<h2>Manage Needs</h2>
+
+<button (click)="addNeed()">Add New Need</button>
+
+<h3>Create Bundle</h3>
+
+<Label>Select Needs:</Label>
+<select multiple [(ngModel)]="needsInBundle">
+  <option *ngFor="let need of cupboardNeeds" [ngValue]="need">
+    {{ need.name }}
+  </option>
+</select>
+<button (click)="createBundle()">Create Bundle</button>
+
+<ul>
+  <li *ngFor="let need of cupboardNeeds">
+    <div *ngIf="!isBundle(need)">
+      <label>Name:</label>
+      <input [(ngModel)]="need.name" (change)="updateNeed(need)" />
+
+      <label>Cost:</label>
+      <input [(ngModel)]="need.cost" (change)="updateNeed(need)" />
+
+      <label>Quantity:</label>
+      <input
+        type="number"
+        [(ngModel)]="need.quantity"
+        (change)="updateNeed(need)"
+      />
+
+      <label>Type:</label>
+      <input [(ngModel)]="need.type" (change)="updateNeed(need)" />
+      <br />
+      <button (click)="deleteNeed(need.id)" class="delete">Delete</button>
+    </div>
+
+    <div *ngIf="isBundle(need)">
+      <h3>{{ need.name }} (Bundle)</h3>
+
+      <label>Name:</label>
+      <input [(ngModel)]="need.name" (change)="updateNeed(need)" />
+
+      <label>Cost:</label>
+      <input [(ngModel)]="need.cost" (change)="updateNeed(need)" />
+
+      <label>Quantity:</label>
+      <input
+        type="number"
+        [(ngModel)]="need.quantity"
+        (change)="updateNeed(need)"
+      />
+      <p>Includes:</p>
+      <ul>
+        <li *ngFor="let name of getNamesInBundle(need)">
+          {{ name }}
+        </li>
+      </ul>
+      <button (click)="deleteNeed(need.id)" class="delete">Delete Bundle</button>
+    </div>
+  </li>
+</ul>

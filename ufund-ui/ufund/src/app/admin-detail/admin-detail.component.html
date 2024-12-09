@@ -1,0 +1,19 @@
+<div *ngIf="need">
+    <h2>{{need.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{need.id}}</div>
+    <div>
+        <label for="need-name">Need Name: </label>
+        <input id="need-name" [(ngModel)]="need.name" placeholder="Need Name"/>
+
+        <label for="need-cost">Need Cost: </label>
+        <input id="need-cost" [(ngModel)]="need.cost" placeholder="Need Cost"/>
+
+        <label for="need-quantity">Need Quantity: </label>
+        <input id="need-quantity" [(ngModel)]="need.quantity" placeholder="Need Quantity"/>
+
+        <label for="need-type">Need Type: </label>
+        <input id="need-type" [(ngModel)]="need.type" placeholder="Need Type"/>
+    </div>
+    <button type="button" (click)="goBack()">go back</button>
+    <button type="button" (click)="save()">save</button>
+</div>

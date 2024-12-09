@@ -1,0 +1,14 @@
+<div id="admin-search-component">
+    <label for="search-box">Need Search</label>
+    <input #searchBox id="search-box" (input)="search(searchBox.value.toLocaleLowerCase())">
+
+<ul class="search-result">
+    <li *ngFor="let need of needs$ | async">
+      Name: {{need.name}},
+      Price: ${{need.cost}},
+      Quantity: {{need.quantity}},
+      Type: {{need.type}}
+      
+    </li>
+  </ul>
+</div>

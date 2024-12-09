@@ -1,0 +1,21 @@
+<h2>My Cart</h2>
+
+<ul class="needs">
+    <li *ngFor="let need of cartNeeds">
+            Name: {{need.name}}, Cost: ${{need.cost}}, Quantity: {{need.quantity}}, Type: {{need.type}}
+        <button (click)="removeFromCart(need.id)">Remove</button>
+    </li>
+</ul>
+<p><Strong>Total: ${{getTotal()}}</Strong></p>
+<button class="checkout" (click)="checkout()">Checkout</button>
+<button (click)="clearCart()">Clear Cart</button>
+<P><Strong>STATS</Strong></P>
+<pre>Total Money Raised: ${{(totalMoneyRaised).toFixed(2)}}
+Total Items Donated: {{totalNeedsSold}}
+</pre>
+<h3>Top Needs Sold</h3>
+<ul>
+    <li *ngFor="let need of topNeeds">
+        {{need[0]}}: {{need[1]}} 
+    </li>
+</ul>

@@ -1,0 +1,51 @@
+h1 {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin: 20px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #4CAF50, #8BC34A);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f4f4f4;
+}
+
+nav a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+nav button:hover {
+  background-color: #d32f2f;
+}
+
+/* Align links on the left */
+nav a:nth-child(-n+3) {
+  margin-left: 0;
+}
+
+/* Logout button on the far right */
+nav button {
+  margin-left: auto;
+}

@@ -1,0 +1,13 @@
+<h1>{{title}}</h1>
+<nav *ngIf="isUser()">
+  <a routerLink="/user-dashboard">Dashboard</a>
+  <a routerLink="/cart">Cart</a>
+  <button (click)="logOut()">Logout</button>
+</nav>
+
+<nav *ngIf="isAdmin()">
+  <a routerLink="/admin-dashboard">Dashboard</a>
+  <button (click)="logOut()">Logout</button>
+</nav>
+<router-outlet></router-outlet>
+<app-user-messages></app-user-messages>
